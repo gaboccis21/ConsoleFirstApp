@@ -6,10 +6,11 @@ namespace SimpleTaskManager
     class Program
     {
         static List<string> tasks = new List<string>();
+        static int taskCounter = 0;
 
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Simple Task Manager ===\n");
+            Console.WriteLine("=== Simple Task Manager v2 ===\n");
 
             bool running = true;
             while (running)
@@ -29,6 +30,7 @@ namespace SimpleTaskManager
                         RemoveTask();
                         break;
                     case "4":
+                        ShowTaskCount();
                         running = false;
                         Console.WriteLine("\nGoodbye!");
                         break;
@@ -54,7 +56,7 @@ namespace SimpleTaskManager
             Console.Write("Enter task: ");
             string task = Console.ReadLine();
             tasks.Add(task);
-            Console.WriteLine("Task added!\n");
+            Console.WriteLine("Task added! (Total tasks created: {taskCounter})\n");
         }
 
         static void ViewTasks()
@@ -70,7 +72,7 @@ namespace SimpleTaskManager
                 {
                     Console.WriteLine($"{i + 1}. {tasks[i]}");
                 }
-                Console.WriteLine();
+                Console.WriteLine($"\nActive tasks: {tasks.Count}\n");
             }
         }
 
@@ -90,6 +92,12 @@ namespace SimpleTaskManager
                     Console.WriteLine("Invalid task number.\n");
                 }
             }
+        }
+
+        static void ShowTaskCount()
+        {
+            Console.WriteLine($"\n*** You created {taskCounter} tasks in total! ***");
+            Console.WriteLine($"*** {tasks.Count} tasks remaining ***\n");
         }
     }
 }
