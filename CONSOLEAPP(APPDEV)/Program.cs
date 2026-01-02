@@ -10,7 +10,7 @@ namespace SimpleTaskManager
 
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Simple Task Manager v22 ===\n");
+            Console.WriteLine("=== Simple Task Manager v2 ===\n");
 
             bool running = true;
             while (running)
